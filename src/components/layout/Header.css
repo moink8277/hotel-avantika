@@ -1,0 +1,116 @@
+.topbar {
+  height: var(--topbar-height);
+  background: var(--color-deep-blue);
+  color: #fff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  gap: 12px;
+}
+.topbar__contact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar {
+  height: var(--header-height);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  border-bottom: 1px solid var(--color-line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--color-red);
+}
+.logo__mark {
+  font-size: 32px;
+  color: var(--color-blue);
+}
+.logo small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #8a8f99;
+}
+.logo strong {
+  font: 700 26px/20px var(--font-heading);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.nav a {
+  padding: 31px 0;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+}
+.nav a:hover,
+.nav a.active {
+  color: var(--color-red);
+  border-color: var(--color-orange);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--color-blue);
+}
+
+.nav-mobile {
+  display: none;
+}
+
+@media (max-width: 950px) {
+  .nav--desktop,
+  .nav--desktop-cta {
+    display: none;
+  }
+  .navbar {
+    height: 72px;
+  }
+  .nav-toggle {
+    display: inline-flex;
+  }
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-bottom: 1px solid var(--color-line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .nav-mobile--open {
+    max-height: 600px;
+  }
+  .nav-mobile a {
+    padding: 14px 6%;
+    font-size: 12px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--color-line);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-mobile .btn {
+    margin: 12px 6%;
+  }
+}

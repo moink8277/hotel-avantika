@@ -1,0 +1,135 @@
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  min-height: 44px;
+  transition: opacity 0.2s ease;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+.btn.primary {
+  background: var(--color-red);
+  color: #fff;
+}
+.btn.orange {
+  background: var(--color-orange);
+  color: #fff;
+}
+.btn.outline {
+  background: #fff;
+  border: 1px solid var(--color-blue);
+  color: var(--color-blue);
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  font-weight: 700;
+}
+.eyebrow.red {
+  color: var(--color-red);
+}
+
+/* Section heading */
+.section-heading {
+  margin-bottom: 23px;
+}
+.section-heading h2 {
+  font: 600 43px var(--font-heading);
+  color: var(--color-blue);
+  margin: 5px 0;
+}
+.section-heading p {
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+.section-heading--center {
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Page banner (inner pages) */
+.page-banner {
+  background: linear-gradient(90deg, rgba(20, 38, 95, 0.95), rgba(31, 58, 138, 0.72)), var(--color-deep-blue);
+  color: #fff;
+  padding: 52px 8% 58px;
+}
+.page-banner h1 {
+  font: 600 49px var(--font-heading);
+  color: #fff;
+  margin: 7px 0;
+}
+.breadcrumb {
+  font-size: 10px;
+  color: #dce5ff;
+}
+
+@media (max-width: 950px) {
+  .section-heading h2 {
+    font-size: 32px;
+  }
+  .page-banner h1 {
+    font-size: 36px;
+  }
+}
+
+/* Shared placeholder / body copy — used across inner pages */
+.placeholder-note {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
+.body-copy {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #444;
+  max-width: 760px;
+  margin-bottom: 12px;
+}
+
+/* About page — strengths grid */
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.strength-card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-top: 3px solid var(--color-orange);
+  padding: 20px 16px;
+}
+.strength-card h3 {
+  font: 600 17px var(--font-heading);
+  color: var(--color-blue);
+  margin-bottom: 8px;
+}
+.strength-card p {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+/* NOTE: .help CTA strip styling now lives solely in components/rooms/Rooms.css
+   to avoid two rules of equal specificity fighting over the same class. */
+
+@media (max-width: 950px) {
+  .strengths-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

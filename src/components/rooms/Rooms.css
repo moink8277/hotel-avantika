@@ -1,0 +1,201 @@
+/* ---------- Vertical preview card (Home page rooms grid) ---------- */
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.room-card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  overflow: hidden;
+  position: relative;
+}
+.room-card--usp {
+  border: 1px solid var(--color-orange);
+}
+.room-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  background: var(--color-orange);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
+.room-card__guests {
+  font-size: 10px;
+  color: var(--color-muted);
+  margin: 4px 0;
+}
+.room-card__image {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+}
+.room-card__body {
+  padding: 16px;
+}
+.room-card__price {
+  float: right;
+  color: var(--color-red);
+  font-size: 12px;
+  font-weight: 700;
+}
+.room-card__body h3 {
+  font: 600 24px var(--font-heading);
+  color: var(--color-blue);
+  margin: 0;
+}
+.room-card__amenities {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 9px;
+  color: var(--color-muted);
+  margin: 10px 0;
+  padding: 0;
+}
+.room-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.room-card__actions .btn {
+  flex: 1;
+}
+
+@media (max-width: 950px) {
+  .room-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Room filter buttons (Rooms page) ---------- */
+.room-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.room-filter button {
+  padding: 10px 17px;
+  background: #fff;
+  border: 1px solid var(--color-line);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  cursor: pointer;
+  min-height: 44px;
+}
+.room-filter button.active {
+  background: var(--color-blue);
+  color: #fff;
+  border-color: var(--color-blue);
+}
+
+/* ---------- Horizontal room row (Rooms page list) ---------- */
+.room-list {
+  display: grid;
+  gap: 15px;
+}
+
+.room-row {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  display: grid;
+  grid-template-columns: 34% 1fr;
+  min-height: 230px;
+  position: relative;
+}
+.room-row__image {
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  object-fit: cover;
+}
+.room-row__info {
+  padding: 23px;
+}
+.room-row__info h3 {
+  font: 600 27px var(--font-heading);
+  color: var(--color-blue);
+  margin: 0 0 7px;
+}
+.room-row__price {
+  float: right;
+  color: var(--color-red);
+  font-size: 15px;
+  font-weight: 700;
+}
+.room-row__badge {
+  display: inline-block;
+  background: var(--color-orange);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  margin-bottom: 8px;
+}
+.amenities {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: #687386;
+  font-size: 9px;
+  margin: 14px 0 20px;
+  list-style: none;
+  padding: 0;
+}
+.room-note {
+  background: var(--color-pale);
+  padding: 12px;
+  font-size: 10px;
+  color: #4b5870;
+  margin-bottom: 15px;
+}
+.room-row__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.help {
+  background: var(--color-pale);
+  border: 1px solid #cfdcf7;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+.help h3 {
+  font: 600 25px var(--font-heading);
+  color: var(--color-blue);
+  margin: 0 0 3px;
+}
+.help p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 950px) {
+  .room-row {
+    grid-template-columns: 1fr;
+  }
+  .room-row__image {
+    height: 230px;
+  }
+}

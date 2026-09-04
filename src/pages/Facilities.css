@@ -1,0 +1,34 @@
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 9px;
+}
+.facility-card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  padding: 22px 10px;
+  text-align: center;
+}
+.facility-card svg {
+  color: var(--color-blue);
+  margin-bottom: 8px;
+}
+.facility-card b {
+  display: block;
+  font-size: 11px;
+  color: var(--color-blue);
+  margin-top: 4px;
+}
+.facility-card span {
+  display: block;
+  font-size: 9px;
+  color: var(--color-muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+@media (max-width: 950px) {
+  .facilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

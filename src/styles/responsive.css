@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Hotel Avantika — Responsive System
+   Breakpoints to be used consistently across all component CSS files.
+   Reference breakpoint (from source HTML): 950px = tablet/mobile nav switch.
+   TODO: fill in per-component responsive rules as each page is built out.
+   ========================================================================== */
+
+:root {
+  --bp-desktop-xl: 1920px;
+  --bp-desktop: 1440px;
+  --bp-laptop: 1366px;
+  --bp-laptop-sm: 1280px;
+  --bp-tablet-lg: 1024px;
+  --bp-tablet: 768px;
+  --bp-mobile-lg: 430px;
+  --bp-mobile: 390px;
+  --bp-mobile-sm: 375px;
+  --bp-mobile-xs: 320px;
+}
+
+/* No horizontal scroll, ever */
+html, body, #root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
