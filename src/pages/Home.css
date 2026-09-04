@@ -2,38 +2,62 @@
 .hero {
   min-height: 550px;
   background: linear-gradient(90deg, rgba(12, 30, 78, 0.9), rgba(20, 38, 95, 0.45), rgba(20, 38, 95, 0.05)),
-    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85")
-      center / cover;
+    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85") center / cover;
   color: #fff;
   display: flex;
   align-items: center;
   padding: 55px 8% 90px;
 }
+
 .hero__content {
   max-width: 590px;
+  animation: hero-fade-in 0.7s ease both;
 }
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__content {
+    animation: none;
+  }
+}
+
 .hero h1 {
   font: 700 60px/0.95 var(--font-heading);
   color: #fff;
   margin: 13px 0;
 }
+
 .hero__tagline {
   font: 600 24px var(--font-heading);
   color: #ffd19c;
   margin: 0 0 12px;
 }
+
 .hero p {
   font-size: 13px;
   line-height: 1.7;
   max-width: 480px;
   color: #edf1fb;
 }
+
 .hero__actions {
   display: flex;
   gap: 10px;
   margin-top: 22px;
   flex-wrap: wrap;
 }
+
 .hero .btn.outline {
   background: transparent;
   border-color: #fff;
@@ -47,6 +71,7 @@
   gap: 45px;
   align-items: center;
 }
+
 .intro p {
   color: var(--color-muted);
   font-size: 12px;
@@ -58,12 +83,14 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
+
 .stat {
   background: #fff;
   border: 1px solid var(--color-line);
   text-align: center;
   padding: 24px 10px;
 }
+
 .stat span {
   display: block;
   font-size: 9px;
@@ -71,6 +98,7 @@
   letter-spacing: 1px;
   color: #777;
 }
+
 .stat b {
   display: block;
   font: 700 16px var(--font-heading);
@@ -88,6 +116,7 @@
   padding: 60px 8%;
   background: var(--color-pale);
 }
+
 .final-cta h2 {
   margin-bottom: 16px;
 }
@@ -96,13 +125,16 @@
   .hero {
     padding: 50px 6% 90px;
   }
+
   .hero h1 {
     font-size: 46px;
   }
+
   .intro,
   .dining-preview {
     grid-template-columns: 1fr;
   }
+
   .stats {
     grid-template-columns: 1fr 1fr;
   }

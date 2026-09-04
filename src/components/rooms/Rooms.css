@@ -10,10 +10,18 @@
   border: 1px solid var(--color-line);
   overflow: hidden;
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(20, 38, 95, 0.14);
+}
+
 .room-card--usp {
   border: 1px solid var(--color-orange);
 }
+
 .room-card__badge {
   position: absolute;
   top: 12px;
@@ -27,30 +35,41 @@
   text-transform: uppercase;
   padding: 5px 10px;
 }
+
 .room-card__guests {
   font-size: 10px;
   color: var(--color-muted);
   margin: 4px 0;
 }
+
 .room-card__image {
   width: 100%;
   height: 205px;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
+
+.room-card:hover .room-card__image {
+  transform: scale(1.06);
+}
+
 .room-card__body {
   padding: 16px;
 }
+
 .room-card__price {
   float: right;
   color: var(--color-red);
   font-size: 12px;
   font-weight: 700;
 }
+
 .room-card__body h3 {
   font: 600 24px var(--font-heading);
   color: var(--color-blue);
   margin: 0;
 }
+
 .room-card__amenities {
   list-style: none;
   display: flex;
@@ -61,11 +80,13 @@
   margin: 10px 0;
   padding: 0;
 }
+
 .room-card__actions {
   display: flex;
   gap: 8px;
   margin-top: 12px;
 }
+
 .room-card__actions .btn {
   flex: 1;
 }
@@ -83,6 +104,7 @@
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
+
 .room-filter button {
   padding: 10px 17px;
   background: #fff;
@@ -94,7 +116,14 @@
   color: var(--color-blue);
   cursor: pointer;
   min-height: 44px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
+
+.room-filter button:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-blue);
+}
+
 .room-filter button.active {
   background: var(--color-blue);
   color: #fff;
@@ -114,27 +143,44 @@
   grid-template-columns: 34% 1fr;
   min-height: 230px;
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.room-row:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(20, 38, 95, 0.14);
+}
+
 .room-row__image {
   width: 100%;
   height: 100%;
   min-height: 230px;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
+
+.room-row:hover .room-row__image {
+  transform: scale(1.05);
+}
+
 .room-row__info {
   padding: 23px;
 }
+
 .room-row__info h3 {
   font: 600 27px var(--font-heading);
   color: var(--color-blue);
   margin: 0 0 7px;
 }
+
 .room-row__price {
   float: right;
   color: var(--color-red);
   font-size: 15px;
   font-weight: 700;
 }
+
 .room-row__badge {
   display: inline-block;
   background: var(--color-orange);
@@ -146,6 +192,7 @@
   padding: 5px 10px;
   margin-bottom: 8px;
 }
+
 .amenities {
   display: flex;
   gap: 14px;
@@ -156,6 +203,7 @@
   list-style: none;
   padding: 0;
 }
+
 .room-note {
   background: var(--color-pale);
   padding: 12px;
@@ -163,6 +211,7 @@
   color: #4b5870;
   margin-bottom: 15px;
 }
+
 .room-row__actions {
   display: flex;
   gap: 10px;
@@ -180,11 +229,13 @@
   flex-wrap: wrap;
   margin-top: 25px;
 }
+
 .help h3 {
   font: 600 25px var(--font-heading);
   color: var(--color-blue);
   margin: 0 0 3px;
 }
+
 .help p {
   margin: 0;
   color: var(--color-muted);
@@ -195,6 +246,7 @@
   .room-row {
     grid-template-columns: 1fr;
   }
+
   .room-row__image {
     height: 230px;
   }
