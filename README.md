@@ -1,106 +1,132 @@
 # Hotel Avantika, Ujjain — React Website
 
-Status: **Structural skeleton / frame only.** This is the file structure,
-routing, layout, and reusable components — ready for real content to be
-filled in next. No page has final copy, verified facts, prices, or final
-images yet. Every placeholder is marked `TODO` in the code.
+Status: **Structural build + content seeding complete.** Real address/phone/
+location facts, owner-confirmed room categories, homepage skyline banner
+(Simhastha 2028 artwork), a real train stock-photo banner animation,
+subtle sitewide hover/interactivity, EmailJS-powered contact + WhatsApp
+click-to-chat, legal pages, and a verified Google Maps integration
+(Contact + Explore pages + structured data) are all in place.
+
+Remaining gaps are owner-supplied content only — see
+[Still outstanding](#still-outstanding-needed-directly-from-the-owner) below.
 
 ## Stack
+
 - React + Vite
 - React Router (`/`, `/about`, `/rooms`, `/rooms/:slug`, `/dining`,
-  `/facilities`, `/explore`, `/gallery`, `/contact`)
+  `/facilities`, `/explore`, `/gallery`, `/contact`, `/privacy-policy`,
+  `/terms-conditions`, `/hotel-policies`)
 - Lucide React (icons)
-- Framer Motion (installed, not yet used — reserved for subtle animations only)
-- Plain CSS (per-component stylesheets), color system in `src/styles/global.css`
+- Framer Motion (installed, available — current animations use plain CSS
+  transitions/keyframes for performance; Framer Motion reserved for future
+  scroll-triggered reveals)
+- Plain CSS (per-component stylesheets), color system + typography in
+  `src/styles/global.css`
 
 ## Run locally
-```bash
+
+```
 npm install
 npm run dev      # dev server
 npm run build    # production build -> dist/
 ```
 
+No environment variables or backend required — fully static. EmailJS
+handles form submissions client-side via the keys in `src/emailjsConfig.js`
+(EmailJS public keys are designed to be client-side/public by nature).
+
 ## What's built
-- Full folder structure per handoff spec (`components/`, `pages/`, `data/`, `styles/`, `seo/`)
-- Header (desktop nav + accessible mobile hamburger menu), Footer, Layout shell
-- All 8 required pages + room detail route + custom 404 — **no Banquets page/route/link anywhere**
-- Reusable components: Button, SectionHeading, PageBanner, Image, RoomCard/RoomGrid,
-  GalleryGrid/Lightbox, PlaceCard
-- Data-driven pattern for rooms, facilities, attractions, gallery, nav links
-  (`src/data/*.js`) — all currently empty/placeholder, ready to be filled
-- Lightweight dependency-free `SEO` component (title, meta description, canonical,
-  Open Graph, Twitter card) wired into every page
-- `public/robots.txt` and `public/sitemap.xml` (placeholder domain)
-- Color system, typography (Cormorant Garamond + Inter) matching the
-  `final-avantika_hotel.html` reference
-- No booking widget on the homepage (per requirements); rooms are display-only
-  and all enquiry CTAs route to `/contact`
-- Contact form UI works client-side (shows a confirmation message) with no
-  fake "email sent" claim, since there's no backend yet
 
-## Research data — now seeded into the project
-Cross-checked against Google Maps, Justdial and Wanderlog (Sept 2026),
-confirmed as this property ("Railway Hotel Avantika Restaurant and
-Dormitory Services"), and written directly into the code:
+- Full folder structure (`components/`, `pages/`, `data/`, `styles/`, `seo/`)
+- Header (desktop nav + accessible mobile hamburger), Footer, Layout shell
+- All 8 required nav pages + room detail route + legal pages + custom 404 —
+  **no Banquets page/route/link anywhere**
+- Reusable components: Button, SectionHeading, PageBanner, Image,
+  RoomCard/RoomGrid, GalleryGrid/Lightbox, PlaceCard, WhatsAppButton, HotelMap
+- Data-driven pattern for rooms, facilities, attractions, gallery, notices,
+  nav links (`src/data/*.js`)
+- `SEO` component (title, meta description, canonical, Open Graph, Twitter
+  card) wired into every page
+- `HotelSchema.jsx` structured data (Hotel/LocalBusiness/BreadcrumbList),
+  now including verified `geo` coordinates
+- `public/robots.txt` and `public/sitemap.xml`
+- Color system and typography (Cormorant Garamond + Inter)
+- No booking widget/engine anywhere — all "Book/Enquire" CTAs route to
+  `/contact` or WhatsApp
+- EmailJS-powered Contact form + newsletter signup
+- Floating WhatsApp click-to-chat button
+- Verified Google Maps embed (keyless, Place ID-based) on Contact + Explore
+  pages, with a matching "Get Directions" link
+- Homepage skyline banner using the owner-supplied Simhastha 2028 artwork,
+  full and unmodified
+- Real train stock-photo banner animation (tiling CSS background, replacing
+  the earlier hand-drawn SVG train)
+- Subtle hover/load animations sitewide (buttons, cards, images), respecting
+  `prefers-reduced-motion`
+
+## Verified facts in use
+
+Cross-checked against Google Maps, Justdial, Wanderlog, and the Google
+Places listing "Hotel Avantika" (Sept 2026):
+
 - **Address**: Near Railway Station Platform No. 1, Malipura, Ujjain, MP 456001
-  → Header topbar, Footer, Contact page
-- **Phone**: +91 734 258 5735 → Header topbar, Footer, Contact page
-- **Domain**: hotelavantika.com set in `SEO.jsx`, `robots.txt`, `sitemap.xml`
-  (currently held by another site — owner to arrange/confirm before launch)
-- **Location USP**: right beside Ujjain Junction Railway Station, built by
-  Western Railway, privately operated → Home hero, About page, Dormitory
-  USP section
-- **Restaurant**: named "Avantika Restaurant" (from the business's own
-  registered name) — cuisine list (thalis, South Indian, pav bhaji) seeded
-  into Dining page from guest reviews
-- **Facilities**: seeded into `data/facilities.js` and shown on both the
-  Facilities page and the homepage preview
-- **Attractions**: `data/attractions.js` seeded with factual Ujjain temple
-  descriptions; Mahakaleshwar & Harsiddhi note the hotel's walking-distance
-  proximity per guest reviews (no exact distance, since none is verified)
-- **Room descriptions**: Dormitory / Fresh Rooms / Family Rooms (6–7 guests)
-  / Personal Cottages all have real descriptive copy now (see `data/rooms.js`)
+- **Phone**: +91 734 258 5735 (alt: 07383402872)
+- **GPS coordinates**: 23.1803009, 75.7825463
+- **Google Place ID**: `ChIJTfFDRhp1YzkRhMfqFYhT4AE` — used (not raw lat/lng)
+  for the map embed and directions link, since a name-based search or bare
+  coordinates can resolve to the wrong property. Multiple similarly-named
+  Ujjain hotels exist ("Avantika Palace," "Mahakal Avantika Palace," "MPT
+  Avantika" — a separate government-run MP Tourism property) — do not
+  cross-reference facts between them.
+- **Ownership**: built by Western Railway, privately operated
+- **Restaurant**: in-house — Gujarati/Punjabi thali, South Indian, biryani,
+  pav bhaji
+- **Location USP**: directly beside Ujjain Junction Railway Station
+- **Nearby landmarks**: Mahakaleshwar Temple, Harsiddhi Temple (walking
+  distance, no exact figure verified)
 
-## Content pass — pages fleshed out (no longer feel empty)
-- **About** now has full copy: Who We Are, History & Background (railway
-  heritage), Hospitality Philosophy, a new "Why Guests Choose Us" strengths
-  grid, and Connection to Ujjain — all grounded in confirmed research
-- **Home**: Welcome intro and Dining preview now have real copy instead of TODO
-- **Rooms, Facilities, Explore, Gallery**: each now opens with a real intro
-  paragraph instead of jumping straight to the grid
-- **Contact**: Reception hours filled in ("Open 24 hours" — backed by guest
-  reviews describing owners as available round the clock)
-- **Gallery empty state**: shows a visitor-friendly "Photos coming soon"
-  message instead of a raw TODO string
-- Still explicitly flagged as TODO (not invented): exact establishment year,
-  room count, awards/certifications, email, room pricing/sizes, menu pricing
+## Room categories (owner-confirmed)
 
-## Still NOT found anywhere publicly — needed directly from the owner
-- Email address
-- Exact price, size (sq ft) and bed count for each room category
-- Full restaurant menu / pricing
-- Real photography for rooms, dining, facilities, gallery
-- Exact map coordinates for the map embed
+1. **Dormitory** (`isUSP: true`) — flagship offering, dedicated homepage
+   "Signature Stay" showcase
+2. **Fresh Rooms**
+3. **Family Rooms** — sleeps 6–7 guests
+4. **Personal Cottages** — private, standalone
 
-## Room categories (confirmed by hotel owner)
-Nav renamed from "Rooms & Suites" to **"Rooms & Dormitory"** — Dormitory is
-the hotel's core USP and gets a dedicated showcase section on the homepage.
-Room types in `src/data/rooms.js` (structure only — price/size/images TODO):
-1. **Dormitory** (`isUSP: true`) — flagship offering, highlighted separately
-2. Fresh Rooms
-3. Family Rooms — 6–7 guests
-4. Personal Cottages
-
-## Explicitly NOT built yet (next step)
-- Real content: hotel copy, verified facts, prices, room specs, images
-- Gallery images + working Lightbox wiring (grid/filter logic is ready)
-- Verified map embed (Explore + Contact pages currently show a clearly
-  marked `MAP PLACEHOLDER`)
-- Structured data (Hotel / LocalBusiness / BreadcrumbList schema)
-- Final animation polish (Framer Motion micro-interactions)
-- Verified contact details (phone, email, address) — replace all `TODO`s
+Prices are intentionally `null` in `src/data/rooms.js` for all four
+categories — real pricing has not been supplied by the owner yet.
 
 ## Content rules (do not violate)
-Do not invent: phone numbers, emails, exact address, room count, prices,
-government ownership claims, establishment year, awards, certifications,
-or attraction distances. Use `TODO` placeholders until official info is supplied.
+
+Do not invent: phone numbers, emails, exact prices, room count,
+establishment year, awards, certifications, or attraction distances beyond
+what's listed above. Use `TODO`/neutral placeholders until official info is
+supplied. The original reference HTML was a design inspiration source
+only — never assume its factual content is true.
+
+## Still outstanding (needed directly from the owner)
+
+- Email address
+- Room pricing, sizes, and bed counts for all 4 categories
+- Restaurant menu + pricing
+- Establishment year / total room count / any certifications
+- Real photography — rooms, dormitory, cottages, restaurant, facilities,
+  exterior (currently representative Unsplash stock images)
+- Real announcements (currently sample placeholders in `src/data/notices.js`)
+- Legal review of Privacy Policy / Terms & Conditions / Hotel Policies
+- `public/og-default.jpg` — currently missing; site works fine in-browser,
+  but links shared on WhatsApp/Facebook/Twitter will show a broken preview
+  image until this exists
+- Confirmation of the `hotelavantika.com` domain (currently held by another
+  site) before launch
+- If the owner sets up their own Google Business Profile later, re-check
+  the Place ID in `HotelMap.jsx` and `HotelSchema.jsx` still points at the
+  right listing
+
+## Also open
+
+- Confirm `HotelSchema.jsx`'s intentionally-omitted fields (`priceRange`,
+  `starRating`, `sameAs`) once owner data arrives
+- Scroll-triggered section fade-ins using the already-installed Framer
+  Motion (nice-to-have, not implemented)
+- Full responsive QA + Lighthouse pass once real photography is in
